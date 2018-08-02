@@ -77,44 +77,27 @@ class Stopwatch extends React.Component {
             })
         }
 
-        render() {
-                return ( < div >
-                    <
-                    div className = 'controls' >
-                    <
-                    button onClick = {
-                        () => this.start()
-                    } > start < /button> <
-                    button onClick = {
-                        () => this.stop()
-                    } > stop < /button> <
-                    button onClick = {
-                        () => this.lap()
-                    } > lap < /button> < /
-                    div > <
-                    div className = 'stopwatch' > {
-                        this.format(this.state.times)
-                    } < /div>  <
-                    ul className = 'results' > {
-                        this.state.results.map((result, index) => < li key = {
-                                index
-                            } > {
-                                result
-                            } < /li>)}</ul >
-                            <
-                            button onClick = {
-                                () => this.reset()
-                            } > reset < /button> </div > )
-                    }
-                }
+render() {
+	return (<div>
+				<div className='controls'>
+					<button onClick={() => this.start()}>start</button>
+					<button onClick={() => this.stop()}>stop</button>
+					<button onClick={() => this.lap()}>lap</button>
+				</div>
+				<div className='stopwatch'>{this.format(this.state.times)}</div>
+				<ul className='results'>{this.state.results.map((result, index) => <li key={index}>{result}</li>)}</ul>
+				<button onClick={() => this.reset()}>reset</button>
+			</div>)
+		}
+}
 
-                function pad0(value) {
-                    let result = value.toString();
-                    if (result.length < 2) {
-                        result = '0' + result;
-                    }
-                    return result;
-                }
+function pad0(value) {
+    let result = value.toString();
+    if (result.length < 2) {
+        result = '0' + result;
+    }
+    return result;
+}
 
-                var element = React.createElement(Stopwatch);
-                ReactDOM.render(element, document.getElementById('app'));
+var element = React.createElement(Stopwatch);
+ReactDOM.render(element, document.getElementById('app'));
