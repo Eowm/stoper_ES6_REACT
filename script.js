@@ -84,8 +84,12 @@ render() {
 					<button onClick={() => this.stop()}>stop</button>
 					<button onClick={() => this.lap()}>lap</button>
 				</div>
-				<div className='stopwatch'>{this.format(this.state.times)}</div>
-				<ul className='results'>{this.state.results.map((result, index) => <li key={index}>{result}</li>)}</ul>
+				<div className='stopwatch'>
+                    {this.format(this.state.times)}
+                </div>
+				<ul className='results'>
+                    {this.state.results.map((result, index) => <li key={index}>{result}</li>)}
+                </ul>
 				<button onClick={() => this.reset()}>reset</button>
 			</div>)
 		}
